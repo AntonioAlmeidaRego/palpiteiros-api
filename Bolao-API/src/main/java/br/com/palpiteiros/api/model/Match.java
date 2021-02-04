@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.palpiteiros.api.enuns.StatusMatch;
+import br.com.palpiteiros.api.enums.StatusMatch;
 import lombok.Getter;
 import lombok.Setter;
 

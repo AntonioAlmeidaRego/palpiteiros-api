@@ -13,7 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.palpiteiros.api.enuns.ChampionshipType;
+import br.com.palpiteiros.api.enums.ChampionshipType;
 import lombok.Getter;
 import lombok.Setter;
 

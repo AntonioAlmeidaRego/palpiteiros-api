@@ -1,4 +1,4 @@
-package br.com.palpiteiros.api.enuns;
+package br.com.palpiteiros.api.enums;
 
 import lombok.Getter;
 
