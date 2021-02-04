@@ -18,9 +18,6 @@ import lombok.Setter;
 @Setter
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * user entity attributes

@@ -18,9 +18,6 @@ import lombok.Setter;
 @Setter
 public class Award implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * award entity attributes

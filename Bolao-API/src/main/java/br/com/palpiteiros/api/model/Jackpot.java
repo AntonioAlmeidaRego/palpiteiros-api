@@ -25,9 +25,6 @@ import lombok.Setter;
 @Setter
 public class Jackpot implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/*

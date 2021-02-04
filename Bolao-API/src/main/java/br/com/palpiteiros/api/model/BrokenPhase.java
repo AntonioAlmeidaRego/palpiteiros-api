@@ -18,9 +18,6 @@ import lombok.Setter;
 @Setter
 public class BrokenPhase implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * brokenPhase entity attributes

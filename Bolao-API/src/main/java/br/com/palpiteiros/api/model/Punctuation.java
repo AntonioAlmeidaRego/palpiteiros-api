@@ -23,9 +23,6 @@ import lombok.Setter;
 @Setter
 public class Punctuation implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * punctuation entity attributes

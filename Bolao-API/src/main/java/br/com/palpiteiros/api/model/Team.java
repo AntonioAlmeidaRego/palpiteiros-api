@@ -19,9 +19,6 @@ import lombok.Setter;
 @Getter
 public class Team implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * team entity attributes

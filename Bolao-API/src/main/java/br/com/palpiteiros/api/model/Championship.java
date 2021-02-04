@@ -24,9 +24,6 @@ import lombok.Setter;
 @Setter
 public class Championship implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * championship entity attributes

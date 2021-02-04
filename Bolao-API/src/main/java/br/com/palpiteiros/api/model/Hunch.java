@@ -20,14 +20,10 @@ import lombok.Setter;
 @Setter
 public class Hunch implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * hunch entity attributes
 	 */
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

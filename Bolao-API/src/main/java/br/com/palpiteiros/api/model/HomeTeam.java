@@ -20,9 +20,6 @@ import lombok.Setter;
 @Setter
 public class HomeTeam implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * home team entity attributes

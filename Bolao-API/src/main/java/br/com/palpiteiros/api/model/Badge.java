@@ -21,9 +21,6 @@ import lombok.Setter;
 @Setter
 public class Badge implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/*
 	 * badge entity attributes
