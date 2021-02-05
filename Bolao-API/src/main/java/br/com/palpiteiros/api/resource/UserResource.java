@@ -25,7 +25,7 @@ public class UserResource implements EntityResource<User> {
 	public ResponseEntity<User> save(@Valid User entity) { 
 		return null;
 	}
-
+	
 	@Override
 	public ResponseEntity<List<User>> findAll() {
 		// TODO Auto-generated method stub
