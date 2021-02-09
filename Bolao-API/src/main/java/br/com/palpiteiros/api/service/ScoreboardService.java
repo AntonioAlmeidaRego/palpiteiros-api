@@ -1,6 +1,7 @@
 package br.com.palpiteiros.api.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,8 @@ public class ScoreboardService implements EntityService<Scoreboard> {
 	}
 
 	@Override
-	public Scoreboard findOne(Long id) {
-		return repository.getOne(id);
+	public Optional<Scoreboard> findOne(Long id) {
+		return repository.findById(id);
 	}
 
 	@Override

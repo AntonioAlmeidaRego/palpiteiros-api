@@ -1,6 +1,7 @@
 package br.com.palpiteiros.api.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,8 @@ public class TeamService implements EntityService<Team> {
 	}
 
 	@Override
-	public Team findOne(Long id) {
-		return repository.getOne(id);
+	public Optional<Team> findOne(Long id) {
+		return repository.findById(id);
 	}
 
 	@Override
