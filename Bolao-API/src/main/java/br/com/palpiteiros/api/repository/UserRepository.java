@@ -8,5 +8,7 @@ import br.com.palpiteiros.api.model.User;
 /*Interface responsible for the persistence layer of user data*/
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> { 
+	
+	public User findByEmailAndPassword(String email, String password);
 
 }
