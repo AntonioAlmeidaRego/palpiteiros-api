@@ -11,14 +11,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Championship Entity - Entidade Campeonato*/
 @Entity
+@Data
 @Table(name = "tb_championship")
-@Getter
-@Setter
 public class Championship implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -29,6 +27,9 @@ public class Championship implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private String year;
+	private String hostCountry;
+	private String phase;
 	/*
 	 * a championship has many teams
 	 */
@@ -41,5 +42,4 @@ public class Championship implements Serializable {
 	@OneToMany
 	@JoinTable(name = "championship_matches")
 	private List<Match> matches;
-	private String championshipType;
 }

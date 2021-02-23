@@ -17,7 +17,7 @@ import br.com.palpiteiros.api.model.Championship;
 import br.com.palpiteiros.api.service.ChampionshipService;
 import br.com.palpiteiros.api.util.EntityResource;
 
-/*Championship Resource - Resourco do Campeonato*/
+/*Championship Resource - Resource do Campeonato*/
 
 @RestController
 @RequestMapping("/api/championships")
@@ -28,7 +28,7 @@ public class ChampionshipResource implements EntityResource<Championship> {
 	/* implementação do metodo save */
 	@Override
 	public ResponseEntity<Championship> save(@Valid Championship entity) {
-		entity.setChampionshipType(ChampionshipType.fromValue(entity.getChampionshipType()));
+		entity.setPhase(ChampionshipType.fromValue(entity.getPhase()));
 		championshipService.save(entity);
 		return new ResponseEntity<Championship>(entity, HttpStatus.CREATED);
 	}

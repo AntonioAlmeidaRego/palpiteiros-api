@@ -90,13 +90,12 @@ public class UserResource implements EntityResource<User> {
 	/* implementação do metodo de login */
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody User user) {
-		
-		System.out.println(user.getEmail() + user.getPassword());
-		
+
 		if (user.getEmail() != null && user.getPassword() != null) {
 			Object obj = userService.login(user.getEmail(), user.getPassword());
 			if (obj != null) {
-				System.out.println("Deu certo!");
+				System.out.println("LOGIN:");
+				System.out.println("Usuário: " + user.getEmail());
 				return new ResponseEntity<Object>(obj, HttpStatus.OK);
 			}
 		}
