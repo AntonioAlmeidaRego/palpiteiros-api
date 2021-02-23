@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +11,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.palpiteiros.api.enums.ChampionshipType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,6 +41,5 @@ public class Championship implements Serializable {
 	@OneToMany
 	@JoinTable(name = "championship_matches")
 	private List<Match> matches;
-	@Enumerated(EnumType.STRING)
-	private ChampionshipType championshipType;
+	private String championshipType;
 }
