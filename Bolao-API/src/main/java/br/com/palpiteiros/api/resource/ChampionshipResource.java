@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.palpiteiros.api.enums.ChampionshipType;
 import br.com.palpiteiros.api.model.Championship;
 import br.com.palpiteiros.api.service.ChampionshipService;
 import br.com.palpiteiros.api.util.EntityResource;
@@ -27,8 +26,7 @@ public class ChampionshipResource implements EntityResource<Championship> {
 
 	/* implementação do metodo save */
 	@Override
-	public ResponseEntity<Championship> save(@Valid Championship entity) {
-		entity.setPhase(ChampionshipType.fromValue(entity.getPhase()));
+	public ResponseEntity<Championship> save(@Valid Championship entity) { 
 		championshipService.save(entity);
 		return new ResponseEntity<Championship>(entity, HttpStatus.CREATED);
 	}
