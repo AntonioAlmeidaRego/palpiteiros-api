@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -38,15 +39,16 @@ public class Match implements Serializable {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusMatch statusMatch;
-	
-	private String place;
+	/*
+	 * a match has a match scoreboard
+	 */
+	@ManyToOne
+	@JoinColumn(name = "scoreboard_id")
+	private Scoreboard scoreboard;
 	/*
 	 * a match has a match phase
 	 */
 	@OneToOne
 	@JoinColumn(name = "phase_id")
-	private Phase phase;
-	
-	private HomeTeam homeTeam;	
-	private VisitingTeam visitingTeam;
+	private Phase phase; 
 }
