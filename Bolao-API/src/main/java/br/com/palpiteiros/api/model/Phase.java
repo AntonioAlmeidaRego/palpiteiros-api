@@ -1,11 +1,14 @@
 package br.com.palpiteiros.api.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -14,7 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name = "tb_broken_phase")
 @Data
-public class BrokenPhase implements Serializable {
+public class Phase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	/*
@@ -24,4 +27,8 @@ public class BrokenPhase implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	
+	@OneToMany
+	@JoinTable(name = "phase_matchs")
+	private List<Match> matchs;
 }

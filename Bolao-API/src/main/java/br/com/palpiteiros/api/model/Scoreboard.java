@@ -10,14 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Scoreboard Entity - Entidade Placar*/
 @Entity
 @Table(name = "tb_scoreboard")
-@Getter
-@Setter
+@Data
 public class Scoreboard implements Serializable {
 
 	private static final long serialVersionUID = 1L;

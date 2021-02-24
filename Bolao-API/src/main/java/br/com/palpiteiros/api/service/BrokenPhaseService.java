@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.palpiteiros.api.model.BrokenPhase;
+import br.com.palpiteiros.api.model.Phase;
 import br.com.palpiteiros.api.repository.BrokenPhaseRepository;
 import br.com.palpiteiros.api.util.EntityService;
 /*BrokenPhase Service that uses the data persistence layer*/
 
 @Service
-public class BrokenPhaseService implements EntityService<BrokenPhase> {
+public class BrokenPhaseService implements EntityService<Phase> {
 	/*
 	 * Using the data persistence layer
 	 */
@@ -24,17 +24,17 @@ public class BrokenPhaseService implements EntityService<BrokenPhase> {
 	 */
 
 	@Override
-	public void save(BrokenPhase entity) {
+	public void save(Phase entity) {
 		repository.saveAndFlush(entity);
 	}
 
 	@Override
-	public List<BrokenPhase> findAll() {
+	public List<Phase> findAll() {
 		return repository.findAll();
 	}
 
 	@Override
-	public Optional<BrokenPhase> findOne(Long id) {
+	public Optional<Phase> findOne(Long id) {
 		return repository.findById(id);
 	}
 

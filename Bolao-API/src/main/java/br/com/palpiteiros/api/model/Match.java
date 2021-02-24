@@ -16,14 +16,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.palpiteiros.api.enums.StatusMatch;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Match Entity - Entidade Partida*/
 @Entity
 @Table(name = "tb_match")
-@Getter
-@Setter
+@Data
 public class Match implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -34,15 +32,21 @@ public class Match implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
-	private String place;
+	private Date date;	
+	
 	@Enumerated(EnumType.STRING)
 	private StatusMatch statusMatch;
+	
+	private String place;
 	/*
 	 * a match has a match phase
 	 */
 	@OneToOne
-	@JoinColumn(name = "broken_phase_id")
-	private BrokenPhase brokenPhase;
+	@JoinColumn(name = "phase_id")
+	private Phase phase;
+	
+	private HomeTeam homeTeam;	
+	private VisitingTeam visitingTeam;
 }

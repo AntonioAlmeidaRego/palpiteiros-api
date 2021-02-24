@@ -10,14 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Hunch Entity - Entidade Palpite*/
 @Entity
 @Table(name = "tb_hunch")
-@Getter
-@Setter
+@Data
 public class Hunch implements Serializable {
 
 	private static final long serialVersionUID = 1L;

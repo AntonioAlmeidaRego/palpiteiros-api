@@ -13,14 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Punctuation Entity - Entidade Pontuação*/
 @Entity
 @Table(name = "tb_punctuation")
-@Getter
-@Setter
+@Data
 public class Punctuation implements Serializable {
 
 	private static final long serialVersionUID = 1L;

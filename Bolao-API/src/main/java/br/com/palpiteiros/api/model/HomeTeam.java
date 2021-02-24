@@ -10,14 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*HomeTeam Entity - Entidade Time de Casa*/
 @Entity
 @Table(name = "tb_home_team")
-@Getter
-@Setter
+@Data
 public class HomeTeam implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -10,15 +10,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Visiting Team Entity - Entidade Time Visitante*/
 
 @Entity
 @Table(name = "tb_visiting_team")
-@Getter
-@Setter
+@Data
 public class VisitingTeam implements Serializable {
 
 	private static final long serialVersionUID = 1L;
