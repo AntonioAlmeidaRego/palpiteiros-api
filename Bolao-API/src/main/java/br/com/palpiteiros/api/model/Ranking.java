@@ -33,9 +33,10 @@ public class Ranking implements Serializable {
 	private Integer totalHunches;
 	private Integer totalPoints; // Soma dos pontos que já marcou
 	private Integer totalJackpots; // Bolões que já participou
-	private Integer precision; // Precisão de acertos em %
+	private Integer accuracy; // Precisão de acertos em %
 	private Integer totalHits; // Total de acertos exatos
 	private Integer totalHalfHits; // Total de acertos do vencedor
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	/*
