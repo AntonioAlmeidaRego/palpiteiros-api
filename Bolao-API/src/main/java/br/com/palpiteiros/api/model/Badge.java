@@ -11,14 +11,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Badge Entity - Entidade Badge*/
 @Entity
 @Table(name = "tb_badge")
-@Getter
-@Setter
+@Data
 public class Badge implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -8,14 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*BrokenPhase Entity - Entidade Fase da Partida*/
 @Entity
 @Table(name = "tb_broken_phase")
-@Getter
-@Setter
+@Data
 public class BrokenPhase implements Serializable {
 
 	private static final long serialVersionUID = 1L;

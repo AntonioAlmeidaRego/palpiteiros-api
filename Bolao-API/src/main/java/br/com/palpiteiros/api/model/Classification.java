@@ -11,14 +11,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Classification Entity - Entidade Classificação*/
 @Entity
 @Table(name = "tb_classification")
-@Getter
-@Setter
+@Data
 public class Classification implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -8,15 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*Team Entity - Entidade Time*/
 
 @Entity
 @Table(name = "tb_team")
-@Setter
-@Getter
+@Data
 public class Team implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,4 +25,12 @@ public class Team implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private int goals;
+	private int points;
+	private int victory;
+	private int draw;
+	private int defeat;
+	private int goalDifference; // Saldo de gols
+	private int redCard;
+
 }

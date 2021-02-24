@@ -21,6 +21,7 @@ import br.com.palpiteiros.api.util.EntityResource;
 @RestController
 @RequestMapping("/api/championships")
 public class ChampionshipResource implements EntityResource<Championship> {
+	
 	@Autowired
 	private ChampionshipService championshipService;
 

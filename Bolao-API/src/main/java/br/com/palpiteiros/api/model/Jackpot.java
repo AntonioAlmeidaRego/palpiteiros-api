@@ -13,16 +13,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /*
  * Jackpot Entity - Entidade Bolão
  * */
 @Entity
 @Table(name = "tb_bolao")
-@Getter
-@Setter
+@Data
 public class Jackpot implements Serializable {
 
 	private static final long serialVersionUID = 1L;

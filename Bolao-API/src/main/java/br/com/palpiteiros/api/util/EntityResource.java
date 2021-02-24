@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  implement the standard methods of a restfull api*/
 
 public interface EntityResource<Entity extends Object> {
+	
 	@PostMapping
 	public ResponseEntity<Entity> save(@RequestBody @Valid Entity entity);
 
