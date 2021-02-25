@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.palpiteiros.api.model.Jackpot;
 import br.com.palpiteiros.api.service.JackpotService;
 import br.com.palpiteiros.api.util.EntityResource;
+import br.com.palpiteiros.api.util.Response;
 
 /*Jackpot Resource - Resource do Bolão*/
 
 @RestController
 @RequestMapping("api/jackpots")
-public class JackpotResource implements EntityResource<Jackpot> {
+public class JackpotResource extends Response<Jackpot> implements EntityResource<Jackpot> {
 
 	@Autowired
 	private JackpotService jackpotService;
@@ -35,24 +36,13 @@ public class JackpotResource implements EntityResource<Jackpot> {
 	/* implementação do metodo findAll */
 	@Override
 	public ResponseEntity<List<Jackpot>> findAll() {
-		List<Jackpot> jackpots = jackpotService.findAll();
-
-		if (!jackpots.isEmpty()) {
-			return ResponseEntity.ok(jackpots);
-		}
-		return new ResponseEntity<List<Jackpot>>(jackpots, HttpStatus.NOT_FOUND);
+		return findAll(jackpotService.findAll());
 	}
 
 	/* implementação do metodo findOne */
 	@Override
 	public ResponseEntity<Jackpot> findOne(Long id) {
-		Optional<Jackpot> jackpot = jackpotService.findOne(id);
-
-		if (jackpot.isPresent()) {
-			return ResponseEntity.ok(jackpot.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return getOne(jackpotService, id);
 	}
 
 	/* implementação do metodo updateById */

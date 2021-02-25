@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.palpiteiros.api.model.Match;
 import br.com.palpiteiros.api.service.MatchService;
 import br.com.palpiteiros.api.util.EntityResource;
+import br.com.palpiteiros.api.util.Response;
 
 /*Match Resource - Resource do Bolão*/
 
 @RestController
 @RequestMapping("api/matchs")
-public class MatchResource implements EntityResource<Match> {
+public class MatchResource extends Response<Match> implements EntityResource<Match> {
 
 	@Autowired
 	private MatchService matchService;
@@ -35,24 +36,13 @@ public class MatchResource implements EntityResource<Match> {
 	/* implementação do metodo findAll */
 	@Override
 	public ResponseEntity<List<Match>> findAll() {
-		List<Match> matchs = matchService.findAll();
-
-		if (!matchs.isEmpty()) {
-			return ResponseEntity.ok(matchs);
-		}
-		return new ResponseEntity<List<Match>>(matchs, HttpStatus.NOT_FOUND);
+		return findAll(matchService);
 	}
 
 	/* implementação do metodo findOne */
 	@Override
 	public ResponseEntity<Match> findOne(Long id) {
-		Optional<Match> match = matchService.findOne(id);
-
-		if (match.isPresent()) {
-			return ResponseEntity.ok(match.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return getOne(matchService, id);
 	}
 
 	/* implementação do metodo updateById */

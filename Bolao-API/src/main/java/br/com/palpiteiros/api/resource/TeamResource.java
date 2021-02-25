@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.palpiteiros.api.model.Team;
 import br.com.palpiteiros.api.service.TeamService;
 import br.com.palpiteiros.api.util.EntityResource;
+import br.com.palpiteiros.api.util.Response;
 
 /*Championship Resource - Resource do Campeonato*/
 
 @RestController
 @RequestMapping("/api/teams")
-public class TeamResource implements EntityResource<Team> {
+public class TeamResource extends Response<Team> implements EntityResource<Team> {
 
 	@Autowired
 	private TeamService teamService;
@@ -35,25 +36,13 @@ public class TeamResource implements EntityResource<Team> {
 	/* implementação do metodo findAll */
 	@Override
 	public ResponseEntity<List<Team>> findAll() {
-		List<Team> teams = teamService.findAll();
-
-		if (!teams.isEmpty()) {
-			return ResponseEntity.ok(teams);
-		}
-
-		return new ResponseEntity<List<Team>>(teams, HttpStatus.NOT_FOUND);
+		return findAll(teamService);
 	}
 
 	/* implementação do metodo findOne */
 	@Override
 	public ResponseEntity<Team> findOne(Long id) {
-		Optional<Team> team = teamService.findOne(id);
-
-		if (team.isPresent()) {
-			return ResponseEntity.ok(team.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return getOne(teamService, id);
 	}
 
 	/* implementação do metodo updateById */

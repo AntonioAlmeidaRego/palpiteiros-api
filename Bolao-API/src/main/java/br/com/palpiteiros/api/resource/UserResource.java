@@ -17,19 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.palpiteiros.api.model.User;
 import br.com.palpiteiros.api.service.UserService;
 import br.com.palpiteiros.api.util.EntityResource;
+import br.com.palpiteiros.api.util.Response;
 
 /*User Resource - Resourco do Usuário*/
 
 @RestController
 @RequestMapping("/api/users")
-public class UserResource implements EntityResource<User> {
+public class UserResource extends Response<User> implements EntityResource<User> {
 	@Autowired
 	private UserService userService;
 
 	/* implementação do metodo save */
 	@Override
 	public ResponseEntity<User> save(@Valid User entity) {
-
 		userService.save(entity);
 		return new ResponseEntity<User>(entity, HttpStatus.CREATED);
 	}
@@ -37,24 +37,13 @@ public class UserResource implements EntityResource<User> {
 	/* implementação do metodo findAll */
 	@Override
 	public ResponseEntity<List<User>> findAll() {
-		List<User> users = userService.findAll();
-		if (!users.isEmpty()) {
-			return ResponseEntity.ok(userService.findAll());
-		}
-
-		return ResponseEntity.notFound().build();
+		return findAll(userService);
 	}
 
 	/* implementação do metodo findOne */
 	@Override
 	public ResponseEntity<User> findOne(Long id) {
-		Optional<User> user = userService.findOne(id);
-
-		if (user.isPresent()) {
-			return ResponseEntity.ok(user.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return getOne(userService, id);
 	}
 
 	/* implementação do metodo updateById */
@@ -89,17 +78,8 @@ public class UserResource implements EntityResource<User> {
 
 	/* implementação do metodo de login */
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody User user) {
-
-		if (user.getEmail() != null && user.getPassword() != null) {
-			Object obj = userService.login(user.getEmail(), user.getPassword());
-			if (obj != null) {
-				System.out.println("LOGIN:");
-				System.out.println("Usuário: " + user.getEmail());
-				return new ResponseEntity<Object>(obj, HttpStatus.OK);
-			}
-		}
-		return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> login(@Valid @RequestBody User user) {
+		return getOptional(userService.login(user.getEmail(), user.getPassword()));
 	}
 
 }

@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.palpiteiros.api.model.Championship;
 import br.com.palpiteiros.api.service.ChampionshipService;
 import br.com.palpiteiros.api.util.EntityResource;
+import br.com.palpiteiros.api.util.Response;
 
 /*Championship Resource - Resource do Campeonato*/
 
 @RestController
 @RequestMapping("/api/championships")
-public class ChampionshipResource implements EntityResource<Championship> {
+public class ChampionshipResource extends Response<Championship> implements EntityResource<Championship> {
 	
 	@Autowired
 	private ChampionshipService championshipService;
@@ -35,25 +36,13 @@ public class ChampionshipResource implements EntityResource<Championship> {
 	/* implementação do metodo findAll */
 	@Override
 	public ResponseEntity<List<Championship>> findAll() {
-		List<Championship> championships = championshipService.findAll();
-
-		if (!championships.isEmpty()) {
-			return ResponseEntity.ok(championships);
-		}
-
-		return new ResponseEntity<List<Championship>>(championships, HttpStatus.NOT_FOUND);
+		return findAll(championshipService);
 	}
 
 	/* implementação do metodo findOne */
 	@Override
 	public ResponseEntity<Championship> findOne(Long id) {
-		Optional<Championship> championship = championshipService.findOne(id);
-
-		if (championship.isPresent()) {
-			return ResponseEntity.ok(championship.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return getOne(championshipService, id);
 	}
 
 	/* implementação do metodo updateById */

@@ -44,13 +44,8 @@ public class UserService implements EntityService<User> {
 		repository.deleteById(id);
 	}
 
-	public Object login(String email, String password) {
-		User user = repository.findByEmailAndPassword(email, password);
-		if (user != null) {
-			return user;
-		} else {
-			return null;
-		}
+	public Optional<User> login(String email, String password) {
+		return repository.findByEmailAndPassword(email, password);
 	}
 
 }
