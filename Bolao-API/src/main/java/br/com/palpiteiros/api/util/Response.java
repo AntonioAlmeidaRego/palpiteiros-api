@@ -19,24 +19,16 @@ public abstract class Response<Entity extends Object> {
 	public ResponseEntity<List<Entity>> findAll(EntityService<Entity> entityService){
 		List<Entity> entities = entityService.findAll();
 		
-		if (!entities.isEmpty()) {
-			return ResponseEntity.ok(entities);
-		}
-		
-		return toNotFoundList();
+		return findAll(entities);
 	}
 	
 	public ResponseEntity<Entity> getOne(EntityService<Entity> entityService, Long id) {
 		Optional<Entity> optional = entityService.findOne(id);
 
-		if (optional.isPresent()) {
-			return ResponseEntity.ok(optional.get());
-		}
-
-		return getNotFound();
+		return get(optional);
 	}
 
-	public ResponseEntity<Entity> getOptional(Optional<Entity> optional) {
+	public ResponseEntity<Entity> get(Optional<Entity> optional) {
 		if (optional.isPresent()) {
 			return ResponseEntity.ok(optional.get());
 		}

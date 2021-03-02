@@ -78,8 +78,8 @@ public class UserResource extends Response<User> implements EntityResource<User>
 
 	/* implementação do metodo de login */
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@Valid @RequestBody User user) {
-		return getOptional(userService.login(user.getEmail(), user.getPassword()));
+	public ResponseEntity<?> login(@RequestBody User user) {
+		return get(userService.login(user.getEmail(), user.getPassword()));
 	}
 
 }
